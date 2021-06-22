@@ -21,9 +21,6 @@ namespace Libraly.BLL.Configures
             
             CreateMap<RegisterViewModel,UserViewModel>();
             CreateMap<UserViewModel,RegisterViewModel>();
-            
-            
-            
 
         }
     }

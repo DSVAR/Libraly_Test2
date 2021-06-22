@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "yOi1nzatN30Mwz+rkYxV7/dWsO/7+o6rkFfR4vcWm7nIOLy6t4ELHzleX440ggUt4iQnp84IlXYfUS3OSPGX7Q==",
+  "dgSpecHash": "IHGu+hTOx7pgX/1clIKjpWKrX9HI0B2xBKoVLQhe3PUeiAHsfVvFMz6hrP/6dpVDuO5ELNH2mCVXEKMpRam76w==",
   "success": true,
   "projectFilePath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.BLL\\Libraly.BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DVAR\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\DVAR\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

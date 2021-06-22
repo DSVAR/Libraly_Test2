@@ -24,7 +24,7 @@ namespace Libraly_Test2
             //настройка сервисов
           
             ConfigService.InitServices(services, Configuration);
-
+        
             services.AddControllersWithViews();
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
         }

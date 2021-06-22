@@ -1,5 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Libraly.BLL.Interfaces;
+using Libraly.BLL.Models.UserDTO;
 using Libraly.Data.Entities;
 using Libraly.Data.Interfaces;
 using Libraly.Data.Repositories;
@@ -7,40 +12,76 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Libraly.BLL.Services
 {
-    public class UserService:IUnitOfWork<User>
+    public class UserService:IUserService
     {
         private readonly UserManager<User> _userManager;
-        private readonly UnitOfWorkRepo<User> _unitOfWorkRepo;
+        private readonly IMapper _mapper;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        UserService(UserManager<User> userManager, UnitOfWorkRepo<User> unitOfWorkRepo)
-        {
+       public UserService(UserManager<User> userManager,
+            RoleManager<IdentityRole> roleManager,
+            IMapper mapper)
+       {
+           _mapper = mapper;
             _userManager = userManager;
-            _unitOfWorkRepo = unitOfWorkRepo;
+            _roleManager = roleManager;
         }
 
-        public  Task Create(User obj)
+        public  IQueryable<User> GetUsers()
         {
-            throw new System.NotImplementedException();//await _userManager.CreateAsync(obj,obj.Password);
+            return  _userManager.Users.AsQueryable();//await _userManager.Users.ToListAsync();
         }
 
-        public IQueryable<User> GetElements()
+        public async Task<IdentityResult> Create(RegisterViewModel registerView)
         {
-            throw new System.NotImplementedException();
+            var user = _mapper.Map<User>(registerView);
+            return await _userManager.CreateAsync(user);
         }
-
-        public void Update(User obj)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Delete(User obj)
+        
+        public Task<User> FindUser(string name)
         {
             throw new System.NotImplementedException();
         }
-
-        public void Save()
+        
+        public async Task<IdentityResult> DeleteUser(User user)
+        {
+            return await _userManager.DeleteAsync(user);
+        }
+        
+        public async Task<IdentityResult> ChangePassword(User user,ChangePasswordViewModel passwordViewModel)
+        {
+            return await _userManager.ChangePasswordAsync(user, passwordViewModel.OldPassword, passwordViewModel.NewPassword);
+        }
+        
+        public Task<SignInResult> SignIn(User user, bool remember)
         {
             throw new System.NotImplementedException();
         }
+        
+        public Task LogOut()
+        {
+            throw new System.NotImplementedException();
+        }
+        
+        public async Task<IdentityResult> CreateRole(string name)
+        {
+            return await _roleManager.CreateAsync(new IdentityRole(name));
+        }
+        
+        public async Task<IdentityResult> AddRoleForUser(User user, string role)
+        {
+            return await _userManager.AddToRoleAsync(user, role);
+        }
+        
+        public async Task<IdentityResult> DeleteRole(string name)
+        {
+            return await _roleManager.DeleteAsync(new IdentityRole(name));
+        }
+        
+        public async Task<IdentityRole> FindRole(string name)
+        {
+            return await _roleManager.FindByNameAsync(name);
+        }
+        
     }
 }
