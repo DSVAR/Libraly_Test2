@@ -1,18 +1,15 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
 using Libraly.BLL.Interfaces;
 using Libraly.BLL.Models.UserDTO;
-using Libraly.BLL.Services;
-using Libraly.Data.Entities;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Libraly.Data.Entities;
 
 namespace Libraly_Test2.Controllers
 {
     [ApiController]
     [Route("/test/")]
-    public class TestController
+    public class TestController : ControllerBase
     {
         private IUserService _userService;
 
@@ -25,7 +22,7 @@ namespace Libraly_Test2.Controllers
 
         [HttpGet]
         [Route("{ortes}")]
-        public int test(int ortes)
+        public int Test(int ortes)
         {
             if (ortes >= 0)
             {
@@ -40,7 +37,7 @@ namespace Libraly_Test2.Controllers
 
         [HttpGet]
         [Route("getusers")]
-        public IQueryable<User> getUser()
+        public IQueryable<User> GetUser()
         {
             var users = _userService.GetUsers();
             return users;
@@ -48,12 +45,20 @@ namespace Libraly_Test2.Controllers
         }
 
         [Route("create")]
-        public async Task<IdentityResult> Create(RegisterViewModel user)
+        public async Task<ActionResult> Create(RegisterViewModel user)
         {
-            var result = await _userService.Create(user);
-            
-            return result;
-            //   return null;
+           // ModelState.AddModelError("swe","ssssss");
+  
+            if (ModelState.IsValid)
+            {
+                var result = await _userService.Create(user);
+                return Ok(user);
+            }
+
+            else
+            {
+                return BadRequest(ModelState);
+            }
         }
     }
 }

@@ -11,9 +11,11 @@ namespace Libraly_Test2
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment _currentEnvironment;
+        public Startup(IConfiguration configuration,IWebHostEnvironment currentEnvironment)
         {
             Configuration = configuration;
+            _currentEnvironment = currentEnvironment;
         }
 
         public IConfiguration Configuration { get; }
@@ -22,14 +24,20 @@ namespace Libraly_Test2
         public void ConfigureServices(IServiceCollection services)
         {
             //настройка сервисов
-          
-            ConfigService.InitServices(services, Configuration);
-        
-            services.AddControllersWithViews();
-            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
+            if (_currentEnvironment.IsEnvironment("Testing"))
+            {
+                
+            }
+            else
+            {
+                ConfigService.InitServices(services, Configuration);
+                services.AddControllersWithViews();
+                services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
