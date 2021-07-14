@@ -8,7 +8,7 @@ using Libraly.Data.Entities;
 namespace Libraly_Test2.Controllers
 {
     [ApiController]
-    [Route("/test/")]
+    [Route("[controller]")]
     public class TestController : ControllerBase
     {
         private IUserService _userService;
@@ -36,10 +36,10 @@ namespace Libraly_Test2.Controllers
         }
 
         [HttpGet]
-        [Route("getusers")]
+        [Route("GetUsers")]
         public IQueryable<User> GetUser()
         {
-            var users = _userService.GetUsers();
+            var users =  _userService.GetUsers();
             return users;
             //   return null;
         }

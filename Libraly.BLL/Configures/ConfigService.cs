@@ -15,11 +15,8 @@ namespace Libraly.BLL.Configures
     {
         public static IServiceCollection InitServices(IServiceCollection services, IConfiguration configuration)
         {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
             
-            services.AddDbContext<ApplicationContext>(
-                options => options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly("Libraly.Data")
-                ));
 
            services.AddIdentity<User, IdentityRole>().AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
