@@ -9,6 +9,7 @@ using Libraly.Data.Entities;
 using Libraly.Data.Interfaces;
 using Libraly.Data.Repositories;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Libraly.BLL.Services
 {
@@ -27,20 +28,20 @@ namespace Libraly.BLL.Services
             _roleManager = roleManager;
         }
 
-        public  IQueryable<User> GetUsers()
+        public async Task<IEnumerable<User>>GetUsers()
         {
-            return  _userManager.Users.AsQueryable();//await _userManager.Users.ToListAsync();
+            return  _userManager.Users;//await _userManager.Users.ToListAsync();
         }
 
         public async Task<IdentityResult> Create(RegisterViewModel registerView)
         {
-            var user = _mapper.Map<User>(registerView);
+            var user = _mapper.Map<UserViewModel>(registerView);
             return await _userManager.CreateAsync(user);
         }
         
-        public Task<User> FindUser(string name)
+        public Task<User> FindUser(string email)
         {
-            throw new System.NotImplementedException();
+            return _userManager.FindByEmailAsync(email);
         }
         
         public async Task<IdentityResult> DeleteUser(User user)
@@ -75,7 +76,8 @@ namespace Libraly.BLL.Services
         
         public async Task<IdentityResult> DeleteRole(string name)
         {
-            return await _roleManager.DeleteAsync(new IdentityRole(name));
+            var role = await _roleManager.FindByNameAsync(name);
+            return await _roleManager.DeleteAsync(role);
         }
         
         public async Task<IdentityRole> FindRole(string name)

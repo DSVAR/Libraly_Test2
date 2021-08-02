@@ -8,6 +8,9 @@ namespace Libraly.BLL.Models.UserDTO
         //обязательные поля
         [Required(ErrorMessage = "Пустое поле")]
         public string FirstName { get; set; }
+        
+      [Required(ErrorMessage = "Пустое поле")]
+        public string Surname { get; set; }
 
 
         [Required(ErrorMessage = "Пустое поле")]

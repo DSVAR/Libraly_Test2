@@ -9,7 +9,7 @@ namespace Libraly_Test2.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TestController : ControllerBase
+    public class TestController : Controller
     {
         private IUserService _userService;
 
@@ -37,22 +37,34 @@ namespace Libraly_Test2.Controllers
 
         [HttpGet]
         [Route("GetUsers")]
-        public IQueryable<User> GetUser()
-        {
-            var users =  _userService.GetUsers();
-            return users;
-            //   return null;
-        }
+        // public IQueryable<User> GetUser()
+        // {
+        //     var users =  _userService.GetUsers();
+        //     return users;
+        //     //   return null;
+        // }
 
-        [Route("create")]
+        [Route("Create")]
         public async Task<ActionResult> Create(RegisterViewModel user)
         {
-           // ModelState.AddModelError("swe","ssssss");
-  
             if (ModelState.IsValid)
             {
                 var result = await _userService.Create(user);
-                return Ok(user);
+                if (result.Succeeded)
+                {
+                    return Ok(user);
+                }
+
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(error.Code,error.Description);
+                    }
+
+                    return BadRequest(ModelState);
+                }
+               
             }
 
             else

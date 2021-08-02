@@ -15,13 +15,12 @@ namespace Libraly.BLL.Configures
     {
         public static IServiceCollection InitServices(IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
-            
-
+           
            services.AddIdentity<User, IdentityRole>().AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
 
            services.AddAutoMapper(typeof(ConfigureOfMapping));
+           services.AddTransient<ConfigureOfMapping>();
 
            services.AddTransient(typeof(IUserService), typeof(UserService));
            

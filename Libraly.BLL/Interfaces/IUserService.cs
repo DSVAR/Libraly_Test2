@@ -9,9 +9,9 @@ namespace Libraly.BLL.Interfaces
 {
     public interface IUserService
     {
-        IQueryable<User> GetUsers();
+        Task<IEnumerable<User>>  GetUsers();
         Task<IdentityResult> Create(RegisterViewModel user);
-        Task<User> FindUser(string name);
+        Task<User> FindUser(string email);
         Task<IdentityResult> DeleteUser(User user);
         Task<IdentityResult> ChangePassword(User user,ChangePasswordViewModel passwordViewModel);
         
