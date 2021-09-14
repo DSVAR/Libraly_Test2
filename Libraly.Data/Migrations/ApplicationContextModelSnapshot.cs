@@ -47,8 +47,8 @@ namespace Libraly.Data.Migrations
                     b.Property<string>("PhotoUrl")
                         .HasColumnType("text");
 
-                    b.Property<int>("YearOfBook")
-                        .HasColumnType("integer");
+                    b.Property<DateTime>("YearBook")
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 

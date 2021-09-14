@@ -11,7 +11,13 @@ namespace Libraly.BLL.Configures
         {
             //соединяем модели 
             CreateMap<Book,BookViewModel>();
-            CreateMap<BookViewModel,Book>();            
+            CreateMap<BookViewModel,Book>();
+
+            CreateMap<CreateBook, BookViewModel>();
+            CreateMap<BookViewModel, CreateBook>();
+
+            CreateMap<UpdateBookViewModel, BookViewModel>();
+            CreateMap<BookViewModel, UpdateBookViewModel>();
 
             CreateMap<UserViewModel, LoginViewModel>();
             CreateMap<LoginViewModel, UserViewModel>();

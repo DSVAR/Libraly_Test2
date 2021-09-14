@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IHGu+hTOx7pgX/1clIKjpWKrX9HI0B2xBKoVLQhe3PUeiAHsfVvFMz6hrP/6dpVDuO5ELNH2mCVXEKMpRam76w==",
+  "dgSpecHash": "vGnwlyLnx1o2dv0WboMlzQ+vTwRGXIxmfqO+PATA7EJiUbp0kPbR/O5GYs9SFifaeVLHImIgq5pvGc5693JQ5w==",
   "success": true,
   "projectFilePath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.BLL\\Libraly.BLL.csproj",
   "expectedPackageFiles": [
@@ -51,6 +51,7 @@
     "C:\\Users\\DVAR\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\DVAR\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\npgsql\\5.0.5\\npgsql.5.0.5.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\5.0.6\\npgsql.entityframeworkcore.postgresql.5.0.6.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
