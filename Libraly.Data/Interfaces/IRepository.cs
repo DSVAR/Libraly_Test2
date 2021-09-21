@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -8,11 +9,11 @@ namespace Libraly.Data.Interfaces
 {
     public interface IRepository<T> where T: class
     {
-        IQueryable<T> GetElements();
+        Task<List<T>> GetElements();
         
-        Task<EntityEntry<T>> Create(T obj);
+        Task Create(T obj);
         
-        EntityEntry<T> Delete(T obj);
+        Task Delete(T obj);
         
         Task<T> Find(long id);
         

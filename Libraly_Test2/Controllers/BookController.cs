@@ -30,9 +30,8 @@ namespace Libraly_Test2.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result=await _service.Creat(model);
-                var json = DJP.DefJsnP(200, model, result.State, "nice Fat cock");
-                var jsonAnswer = JsonConvert.SerializeObject(new {Book = result, sw = 1});
+                await _service.Creat(model);
+                var json = DJP.DefJsnP(200,  "Item's added");
                 return Ok(json);
             }
             else
@@ -43,10 +42,18 @@ namespace Libraly_Test2.Controllers
 
         [HttpGet]
         [Route("GetBooks")]
-        public IQueryable GetBooks()
+        public async Task<IActionResult> GetBooks()
         {
-           
-            return _service.GetBooks();
+            var json = DJP.DefJsnP(200, "Found",  await _service.GetBooks());
+            return Ok(json);
+        }
+
+        [HttpPost]
+        [Route("FindBook")]
+        public async Task<IActionResult> FindBook(BookViewModel book)
+        {
+            var json = DJP.DefJsnP(200, "Found", await _service.FindBook(book.Id));
+            return Ok(json);
         }
     }
 }

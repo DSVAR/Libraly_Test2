@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Libraly.Data.Interfaces
 {
-    public interface  IUnitOfWork<T> where T:class
+    public interface  IUnitOfWork
     {
-        ApplicationContext Context { get; }
+       ApplicationContext Context { get; }
        void Save();
        void Dispose();
     }

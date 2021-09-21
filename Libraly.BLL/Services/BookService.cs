@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -15,36 +16,38 @@ namespace Libraly.BLL.Services
     public class BookService:IBookService
     {
         private readonly IRepository<Book> _boookRepo;
-        private readonly IUnitOfWork<Book> _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public BookService(IUnitOfWork<Book> unitOfWork,IMapper mapper,IRepository<Book> boookRepo)
+        public BookService( IUnitOfWork unitOfWork,IMapper mapper,IRepository<Book> boookRepo)
         {
-            _unitOfWork = unitOfWork;
+           _unitOfWork = unitOfWork;
             _mapper = mapper;
             _boookRepo = boookRepo;
         }
 
 
-        public IQueryable GetBooks()
+        public async Task<List<Book>> GetBooks()
         {
-           return _boookRepo.GetElements();
+           return await _boookRepo.GetElements();
        //    return null;
         }
-
-        public async Task<EntityEntry<Book>> Creat(CreateBook model)
+        
+        public async Task Creat(CreateBook model)
         {
             var book = _mapper.Map<BookViewModel>(model);
-            var resultState=await _boookRepo.Create(book);
-            _unitOfWork.Save();
-            return resultState;
+            
+            await _boookRepo.Create(book);
+           _unitOfWork.Save();
             // return null;
         }
 
      
-        public async Task<Book> FindBook(long id)
+        public async Task<BookViewModel> FindBook(long id)
         {
-            return await _boookRepo.Find(id);
+            var book=await _boookRepo.Find(id);
+            var changedBook = _mapper.Map<BookViewModel>(book);
+            return changedBook;
         }
         
         public EntityState UpdateBook(int idBook, UpdateBookViewModel updateBookViewModel)

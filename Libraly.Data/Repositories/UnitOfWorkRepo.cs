@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Libraly.Data.Repositories
 {
-    public class UnitOfWorkRepo<T> : IUnitOfWork<T> where T: class
+    public class UnitOfWorkRepo : IUnitOfWork
     {
         public ApplicationContext Context { get; }
 

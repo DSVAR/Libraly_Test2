@@ -12,9 +12,9 @@ namespace Libraly.BLL.Interfaces
 {
     public interface IBookService
     {
-        IQueryable GetBooks();
-        Task<EntityEntry<Book>> Creat(CreateBook model);
-        Task<Book> FindBook(long id);
+        Task<List<Book>> GetBooks();
+        Task Creat(CreateBook model);
+        Task<BookViewModel> FindBook(long id);
         EntityState UpdateBook(int idBook, UpdateBookViewModel updateBookViewModel);
     }
 }
