@@ -5,6 +5,7 @@ namespace Libraly.BLL.Models.BookDTO
 {
     public class CreateBook
     {
+        public  long Id { get; set; }
         [Required (ErrorMessage = "Add Date")]
         public DateTime YearBook { get; set; }
         [Range(1,1000,ErrorMessage = "So a lot of count")]

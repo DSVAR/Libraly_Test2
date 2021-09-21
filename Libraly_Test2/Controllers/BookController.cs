@@ -25,13 +25,13 @@ namespace Libraly_Test2.Controllers
         }
 
         [HttpPost]
-        [Route("CreteBook")]
+        [Route("CreateBook")]
         public async Task<IActionResult> Create(CreateBook model)
         {
             if (ModelState.IsValid)
             {
                 await _service.Creat(model);
-                var json = DJP.DefJsnP(200,  "Item's added");
+                var json = DJP.DefJsnP(200,  "succeeded");
                 return Ok(json);
             }
             else

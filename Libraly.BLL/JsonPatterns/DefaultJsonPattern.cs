@@ -11,12 +11,10 @@ namespace Libraly.BLL.JsonPatterns
     {
         public string DefJsnP(int status, string message,object item=null)
         {
-            var items = JsonConvert.SerializeObject(item);
+            
             var json = JsonConvert.SerializeObject(new {CodeStatus=status,
                 Message=message,
-                ItemCount=items.LongCount(),
-                Item = items,
-                objects=item
+                Item = item
             });
             return json;
         }
