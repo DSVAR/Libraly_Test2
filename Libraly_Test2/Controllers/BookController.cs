@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Libraly.BLL.Interfaces;
@@ -48,12 +49,28 @@ namespace Libraly_Test2.Controllers
             return Ok(json);
         }
 
-        [HttpPost]
-        [Route("FindBook")]
-        public async Task<IActionResult> FindBook(BookViewModel book)
+        [HttpGet]
+        [Route("FindBook/{bookId}")]
+        public async Task<IActionResult> FindBook(int bookId)
         {
-            var json = DJP.DefJsnP(200, "Found", await _service.FindBook(book.Id));
+            var json = DJP.DefJsnP(200, "Found", await _service.FindBook(bookId));
             return Ok(json);
+        }
+
+        [HttpDelete]
+        [Route("DeleteBook/{bookId}")]
+        public async Task<IActionResult> DeleteBook(int bookId)
+        {
+            try
+            {
+             var book=   await _service.DeleteBook(bookId);
+                return Ok(DJP.DefJsnP(200, "succeeded",book));
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(DJP.DefJsnP(400, ex.Message));
+            }
+
         }
     }
 }

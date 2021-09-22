@@ -26,15 +26,9 @@ namespace Libraly.BLL.Configures
 
            services.AddTransient(typeof(IUserService), typeof(UserService));
            services.AddTransient(typeof(IBookService), typeof(BookService));
-           services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+           services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
            
-         // services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWorkRepo));
-           services.AddTransient<IUnitOfWork,UnitOfWorkRepo>();
-       //    services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-           
-           
-           // services.AddScoped(typeof(IUserService), typeof(UserService));
-           // services.AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWorkRepo<>));
+           services.AddScoped<IUnitOfWork,UnitOfWorkRepo>();
             return services;
         }
         

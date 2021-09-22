@@ -18,5 +18,6 @@ namespace Libraly.Data.Interfaces
         Task<T> Find(long id);
         
         EntityState Update(T obj);
+        void Detach(T obj);
     }
 }

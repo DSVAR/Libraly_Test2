@@ -35,28 +35,6 @@ namespace Libraly.TestUnit.BookController
             _factory = factory;
         }
         [Fact,Order(1)]
-        public async Task GetBooks()
-        {
-            var response = await _factory.Client.GetAsync("/BookC/GetBooks");
-            //запрос
-            var responseBody = await response.Content.ReadAsStringAsync();
-            //прочтения запроса
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                var jObject = JsonConvert.DeserializeObject(responseBody);
-                //из JSON в Object
-                var token = JObject.Parse(jObject.ToString() );
-                //преобразование в JObject
-                var isMoreNull=token["Item"];
-               
-                //получение книг
-                var isTrue = isMoreNull.Any();
-                Assert.True(isTrue);
-            }
-          //  return null;
-        }
-
-        [Fact,Order(2)]
         public async Task CreateBook()
         {
             var json = JsonConvert.SerializeObject(_book);
@@ -81,14 +59,10 @@ namespace Libraly.TestUnit.BookController
             }
         }
         
-        [Fact,Order(3)]
-        public async Task FindBook()
+        [Fact,Order(2)]
+        public async Task GetBooks()
         {
-            var json = JsonConvert.SerializeObject(_book);
-            //конвертация объекта в JSON
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            //Создание контента
-            var response = await _factory.Client.PostAsync("/BookC/FindBook",content);
+            var response = await _factory.Client.GetAsync("/BookC/GetBooks");
             //запрос
             var responseBody = await response.Content.ReadAsStringAsync();
             //прочтения запроса
@@ -103,6 +77,48 @@ namespace Libraly.TestUnit.BookController
                 //получение книг
                 var isTrue = isMoreNull.Any();
                 Assert.True(isTrue);
+            }
+          //  return null;
+        }
+
+        [Fact,Order(3)]
+        public async Task FindBook()
+        {
+           var response = await _factory.Client.GetAsync($"/BookC/FindBook/{_book.Id}");
+            //запрос
+            var responseBody = await response.Content.ReadAsStringAsync();
+            //прочтения запроса
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var jObject = JsonConvert.DeserializeObject(responseBody);
+                //из JSON в Object
+                var token = JObject.Parse(jObject.ToString() );
+                //преобразование в JObject
+                var isMoreNull=token["Item"];
+               
+                //получение книг
+                var isTrue = isMoreNull.Any();
+                Assert.True(isTrue);
+            }
+        }
+        [Fact,Order(4)]
+        public async Task DeleteBook()
+        {
+            var response = await _factory.Client.DeleteAsync($"/BookC/DeleteBook/{_book.Id}");
+            //запрос
+            var responseBody = await response.Content.ReadAsStringAsync();
+            //прочтения запроса
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var jObject = JsonConvert.DeserializeObject(responseBody);
+                //из JSON в Object
+                var token = JObject.Parse(jObject.ToString() );
+                //преобразование в JObject
+                var isMoreNull=token["Item"];
+                var bookObject = isMoreNull.ToObject<BookViewModel>();
+                //получение книг
+                
+                Assert.Equal(_book.Id,bookObject.Id);
             }
         }
     }

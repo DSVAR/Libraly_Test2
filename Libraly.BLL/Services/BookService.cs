@@ -49,7 +49,21 @@ namespace Libraly.BLL.Services
             var changedBook = _mapper.Map<BookViewModel>(book);
             return changedBook;
         }
-        
+
+        public async Task<Book> DeleteBook(long id)
+        {
+            var book=await _boookRepo.Find(id);
+            
+            var local = _unitOfWork.Context.Set<Book>().Local.FirstOrDefault(entry => entry.Id.Equals(id));
+            if (local != null)
+            {
+                _boookRepo.Detach(local);
+            }
+          await  _boookRepo.Delete(book);
+          _unitOfWork.Save();
+          return book;
+        }
+
         public EntityState UpdateBook(int idBook, UpdateBookViewModel updateBookViewModel)
         {
             var book = _mapper.Map<Book>(updateBookViewModel);

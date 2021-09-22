@@ -14,7 +14,7 @@ namespace Libraly.Data.Repositories
         private readonly IUnitOfWork _iuow;
         private readonly ApplicationContext _context;
         private readonly DbSet<T> _dabSet;
-        private IRepository<T> _repositoryImplementation;
+      //  private IRepository<T> _repositoryImplementation;
 
         public Repository(ApplicationContext context,IUnitOfWork iuow)
         {
@@ -37,7 +37,8 @@ namespace Libraly.Data.Repositories
        
         public async Task Delete(T obj)
         {
-            _context.Remove(obj);
+          //  _context.Remove(obj);
+            _dabSet.Remove(obj);
         }
 
         public async Task<T> Find(long id)
@@ -48,6 +49,12 @@ namespace Libraly.Data.Repositories
         public EntityState Update(T obj)
         {
             return _iuow.Context.Entry(obj).State = EntityState.Modified;
+        }
+
+     
+        public void Detach(T entity)
+        {
+            _iuow.Context.Entry(entity).State = EntityState.Detached;
         }
     }
 }
