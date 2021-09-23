@@ -72,5 +72,20 @@ namespace Libraly_Test2.Controllers
             }
 
         }
+
+        [HttpPost]
+        [Route("BookUpdate")]
+        public async Task<IActionResult> UpdateBook(UpdateBookViewModel book)
+        {
+            try
+            {
+               await _service.UpdateBook(book);
+                return Ok(DJP.DefJsnP(200, "succeeded"));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(DJP.DefJsnP(400, ex.Message));
+            }
+        }
     }
 }

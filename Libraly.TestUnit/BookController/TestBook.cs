@@ -101,7 +101,39 @@ namespace Libraly.TestUnit.BookController
                 Assert.True(isTrue);
             }
         }
+
         [Fact,Order(4)]
+        public async Task UpdateBook()
+        {
+            _book.NameOfBook = "newName";
+            var json = JsonConvert.SerializeObject(_book);
+            
+            var content = new StringContent(json,Encoding.UTF8,"application/json");
+            
+            var response = await _factory.Client.PostAsync("/BookC/BookUpdate", content);
+            var responseFind = await _factory.Client.GetAsync($"/BookC/FindBook/{_book.Id}");
+            
+            var responseBody = await response.Content.ReadAsStringAsync();
+            var responseBodyFind = await responseFind.Content.ReadAsStringAsync();
+            if (response.StatusCode == HttpStatusCode.OK && responseFind.StatusCode == HttpStatusCode.OK)
+            {
+                var jObject = JsonConvert.DeserializeObject(responseBody);
+                var jObjectFind = JsonConvert.DeserializeObject(responseBodyFind);
+                
+                var token = JObject.Parse(jObject.ToString());
+                var tokenFind = JObject.Parse(jObjectFind.ToString());
+                
+                var message = token["Message"];
+                var jTokenFind = tokenFind["Item"];
+
+                var book = jTokenFind.ToObject<BookViewModel>();
+                
+                Assert.Equal(_book.NameOfBook,book.NameOfBook);
+                
+            }
+        }
+        
+        [Fact,Order(5)]
         public async Task DeleteBook()
         {
             var response = await _factory.Client.DeleteAsync($"/BookC/DeleteBook/{_book.Id}");
@@ -114,8 +146,8 @@ namespace Libraly.TestUnit.BookController
                 //из JSON в Object
                 var token = JObject.Parse(jObject.ToString() );
                 //преобразование в JObject
-                var isMoreNull=token["Item"];
-                var bookObject = isMoreNull.ToObject<BookViewModel>();
+                var jToken=token["Item"];
+                var bookObject = jToken.ToObject<BookViewModel>();
                 //получение книг
                 
                 Assert.Equal(_book.Id,bookObject.Id);

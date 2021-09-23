@@ -64,10 +64,12 @@ namespace Libraly.BLL.Services
           return book;
         }
 
-        public EntityState UpdateBook(int idBook, UpdateBookViewModel updateBookViewModel)
+        public async Task<Book> UpdateBook( UpdateBookViewModel updateBookViewModel)
         {
-            var book = _mapper.Map<Book>(updateBookViewModel);
-            return _boookRepo.Update(book);
+            var book = _mapper.Map<BookViewModel>(updateBookViewModel);
+            await _boookRepo.Update(book);
+            _unitOfWork.Save();
+            return book;
         }
     }
 }

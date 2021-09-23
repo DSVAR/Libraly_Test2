@@ -16,7 +16,7 @@ namespace Libraly.BLL.Interfaces
         Task Creat(CreateBook model);
         Task<BookViewModel> FindBook(long id);
         Task<Book> DeleteBook(long id);
-        EntityState UpdateBook(int idBook, UpdateBookViewModel updateBookViewModel);
+        Task<Book> UpdateBook(UpdateBookViewModel updateBookViewModel);
         
     }
 }

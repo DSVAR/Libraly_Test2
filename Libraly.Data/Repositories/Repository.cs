@@ -46,9 +46,11 @@ namespace Libraly.Data.Repositories
             return await _dabSet.FindAsync(id);
         }
 
-        public EntityState Update(T obj)
+        public async Task Update(T obj)
         {
-            return _iuow.Context.Entry(obj).State = EntityState.Modified;
+            // _iuow.Context.Entry(obj).State = EntityState.Modified;
+             _context.Update(obj);
+             
         }
 
      
