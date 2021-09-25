@@ -18,8 +18,9 @@ namespace Libraly.BLL.Services
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private IUserService _userServiceImplementation;
 
-       public UserService(UserManager<User> userManager,
+        public UserService(UserManager<User> userManager,
             RoleManager<IdentityRole> roleManager,
             IMapper mapper)
        {
@@ -82,8 +83,18 @@ namespace Libraly.BLL.Services
         
         public async Task<IdentityRole> FindRole(string name)
         {
+            
             return await _roleManager.FindByNameAsync(name);
         }
-        
+
+        public async Task<IdentityResult> AddToRole(UserViewModel user, string role)
+        {
+            return await _userManager.AddToRoleAsync(user, role);
+        }
+
+        public async Task<bool> IsInRole(UserViewModel user, string role)
+        {
+            return  await _userManager.IsInRoleAsync(user, role);
+        }
     }
 }
