@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using Libraly.BLL.Interfaces;
 using Libraly.BLL.Models.UserDTO;
@@ -83,37 +84,65 @@ namespace Libraly_Test2.Init
         }
 
 
-        private void CheckValue()
+        private async Task CheckValue()
         {
             var admin = _mapper.Map<UserViewModel>(_admin);
             var librarian = _mapper.Map<UserViewModel>(_librarian);
             var user = _mapper.Map<UserViewModel>(_deffUser);
 
 
-            var isroleAdmin = _userService.FindRole(_adminRole);
-            var isroleLibrarian = _userService.FindRole(_LibrarianRole);
-            var isroleUser = _userService.FindRole(_UserRole);
+          //  var isRoleAdmin = await _userService.FindRole(_adminRole)==null ? true : false ;
+            if (await _userService.FindRole(_adminRole) != null)
+            {
+                await _userService.CreateRole(_adminRole);
+            }
+            
+            if (await _userService.FindRole(_LibrarianRole) != null)
+            {
+                await _userService.CreateRole(_LibrarianRole);
+            }
+            
+            if (await _userService.FindRole(_UserRole) != null)
+            {
+                await _userService.CreateRole(_UserRole);
+            }
 
-            var isRegisteredAdmin = _userService.FindUser(_admin.Email);
-            var isRegisteredLibrarian = _userService.FindUser(_librarian.Email);
-            var isRegisteredUser = _userService.FindUser(_deffUser.Email);
+            if (await _userService.FindUser(_admin.Email) != null)
+            {
+                await _userService.Create(_admin);
+            }
 
-            var isRoleOfAdmin = _userService.IsInRole(admin, _adminRole);
-            var isRoleOfLibrarian = _userService.IsInRole(librarian, _LibrarianRole);
-            var isRoleOfUser = _userService.IsInRole(user, _UserRole);
+            if (await _userService.FindUser(_librarian.Email) != null)
+            {
+                await _userService.Create(_librarian);
+            }
+
+            if (await _userService.FindUser(_deffUser.Email) != null)
+            {
+                await _userService.Create(_deffUser);
+            }
+
+            var role = await _userService.IsInRole(admin, _adminRole);
+            if (!await _userService.IsInRole(admin, _adminRole))
+            {
+                
+            }
+
+            if (!await _userService.IsInRole(librarian, _LibrarianRole))
+            {
+                
+            }
+
+            if (!await _userService.IsInRole(user, _UserRole))
+            {
+                
+            }
+        
         }
 
-        private void MakeProfilesAndRole()
+        private async Task MakeProfilesAndRole()
         {
-            if (!_isRegisterAdmin) _userService.Create(_admin);
-
-            if (!_isAdmin) _userService.CreateRole(_adminRole);
-
-            if (!_isRegisterLibrarian) _userService.Create(_librarian);
-            if (!_isLibrarian) _userService.CreateRole(_LibrarianRole);
-
-            if (!_isRegisterUser) _userService.Create(_deffUser);
-            if (!_isUser) _userService.CreateRole(_UserRole);
+   
         }
     }
 }
