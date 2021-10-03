@@ -24,7 +24,7 @@ namespace Libraly.BLL.Configures
            services.AddAutoMapper(typeof(ConfigureOfMapping));
            services.AddTransient<ConfigureOfMapping>();
 
-           services.AddTransient(typeof(IUserService), typeof(UserService));
+           services.AddScoped(typeof(IUserService), typeof(UserService));
            services.AddTransient(typeof(IBookService), typeof(BookService));
            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
            

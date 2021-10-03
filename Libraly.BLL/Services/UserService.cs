@@ -89,12 +89,13 @@ namespace Libraly.BLL.Services
 
         public async Task<IdentityResult> AddToRole(UserViewModel user, string role)
         {
-            return await _userManager.AddToRoleAsync(user, role);
+           return await _userManager.AddToRoleAsync(user, role);
+            
         }
 
         public async Task<bool> IsInRole(UserViewModel user, string role)
         {
-            return  await _userManager.IsInRoleAsync(user, role);
+           return  await _userManager.IsInRoleAsync(user, role);
         }
     }
 }

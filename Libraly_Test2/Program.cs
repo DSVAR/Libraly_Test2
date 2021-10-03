@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Libraly_Test2.Init;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -11,9 +13,15 @@ namespace Libraly_Test2
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+           IHost webHost= CreateHostBuilder(args).Build();
+           using (var scoped=webHost.Services.CreateScope())
+           {
+               var con = scoped.ServiceProvider.GetService<UserRole>();
+               await con.CheckValue();
+           }
+           webHost.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

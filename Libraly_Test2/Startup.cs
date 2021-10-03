@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Libraly.BLL.Configures;
 using Libraly.Data.Context;
+using Libraly_Test2.Init;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -32,6 +33,8 @@ namespace Libraly_Test2
 
 
             ConfigService.InitServices(services, Configuration);
+            services.AddScoped<UserRole>();
+            
             SettingBD(services, Configuration);
             services.AddControllersWithViews();
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
@@ -59,7 +62,7 @@ namespace Libraly_Test2
 
             app.UseRouting();
 
-
+            
             app.UseAuthentication();
             app.UseAuthorization();
 
