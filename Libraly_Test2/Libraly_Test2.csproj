@@ -40,6 +40,16 @@
       <_ContentIncludedByDefault Remove="ClientApp\package.json" />
       <_ContentIncludedByDefault Remove="ClientApp\public\manifest.json" />
       <_ContentIncludedByDefault Remove="ClientApp\tsconfig.json" />
+      <_ContentIncludedByDefault Remove="Libraly_Test2\Pages\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Libraly_Test2\Pages\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Libraly_Test2\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="Libraly_Test2\appsettings.json" />
+      <_ContentIncludedByDefault Remove="Libraly_Test2\ClientApp\.eslintrc.json" />
+      <_ContentIncludedByDefault Remove="Libraly_Test2\ClientApp\package-lock.json" />
+      <_ContentIncludedByDefault Remove="Libraly_Test2\ClientApp\package.json" />
+      <_ContentIncludedByDefault Remove="Libraly_Test2\ClientApp\public\manifest.json" />
+      <_ContentIncludedByDefault Remove="Libraly_Test2\ClientApp\tsconfig.json" />
+      <_ContentIncludedByDefault Remove="Libraly_Test2\Properties\launchSettings.json" />
     </ItemGroup>
 
     <ItemGroup>
