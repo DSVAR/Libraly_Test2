@@ -91,9 +91,12 @@ namespace Libraly_Test2
             {
                 var connectionString ="Server=localhost; Port=5432; Database=LibrReact; UserID=postgres; Password=password; "  ;
                 services.AddDbContext<ApplicationContext>(
-                    options => options.UseNpgsql(connectionString,
-                        b => b.MigrationsAssembly("Libraly.Data")
-                    ));
+                    options => {
+                        options.UseNpgsql(connectionString,
+                b => b.MigrationsAssembly("Libraly.Data")
+            );
+                        options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+                        });
             // костыль и велосипед
           
 
@@ -102,9 +105,13 @@ namespace Libraly_Test2
             {
                
                 services.AddDbContext<ApplicationContext>(
-                    options => options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
-                        b => b.MigrationsAssembly("Libraly.Data")
-                    ));
+                    options => {
+                        options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
+                b => b.MigrationsAssembly("Libraly.Data")
+            );
+                        options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+                    }
+                    );
             }
         }
 

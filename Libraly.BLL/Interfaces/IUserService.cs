@@ -19,10 +19,9 @@ namespace Libraly.BLL.Interfaces
         Task LogOut();
         
         Task<IdentityResult> CreateRole(string name);
-        Task<IdentityResult> AddRoleForUser(User user, string role);
         Task<IdentityResult> DeleteRole(string name);
         Task<IdentityRole> FindRole(string name);
-        Task<IdentityResult> AddToRole(UserViewModel user, string role);
+        Task<IdentityResult> AddToRole(AddToRoleViewModel userModel, string role=null,UserViewModel userViewModel=null);
         Task<bool> IsInRole(UserViewModel user, string role);
 
     }

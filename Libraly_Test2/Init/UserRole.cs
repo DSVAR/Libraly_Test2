@@ -90,58 +90,53 @@ namespace Libraly_Test2.Init
             {
                 await _userService.CreateRole(_UserRole);
             }
+                     
+                user = _mapper.Map<UserViewModel>(await _userService.FindUser(_deffUser.Email) ) ;
 
             if (await _userService.FindUser(_admin.Email) == null)
             {
-                var result =await _userService.Create(_admin);
-                if (result.Succeeded)
-                {
-                    admin = _mapper.Map<UserViewModel>(await _userService.FindUser(_admin.Email) ) ;
-                    
-                    var local =_work.Context.Set<User>().Local.FirstOrDefault(entry => entry.Id.Equals(admin.Id));
-                    if(local!=null)
-                        _repository.Detach(local);
-                    
-                    await _userService.AddToRole(admin, _adminRole);
-                }
+               await _userService.Create(_admin);
             }
-            else 
-                admin = _mapper.Map<UserViewModel>(await _userService.FindUser(_admin.Email) ) ;
-
+            
             if (await _userService.FindUser(_librarian.Email) == null)
             {
                 await _userService.Create(_librarian);
             }
-            else
-                librarian = _mapper.Map<UserViewModel>(await _userService.FindUser(_librarian.Email) ) ;
+           
 
             if (await _userService.FindUser(_deffUser.Email) == null)
             {
                 await _userService.Create(_deffUser);
             }
-            else            
-                user = _mapper.Map<UserViewModel>(await _userService.FindUser(_deffUser.Email) ) ;
-
+           
+            
             var role = await _userService.IsInRole(admin, _adminRole);
             if (!await _userService.IsInRole(admin, _adminRole))
             {
-                
-                var sw= await _userService.AddToRole(admin, _adminRole);;
-                var se = 5;
-            }
+               var newAdmin = _mapper.Map<UserViewModel>(await _userService.FindUser(_admin.Email) ) ;
 
+                await _userService.AddToRole(null, _adminRole,newAdmin);;
+               
+            }
+            
+               
             if (!await _userService.IsInRole(librarian, _LibrarianRole))
             {
-              var gs=  await _userService.AddToRole(librarian, _LibrarianRole);
+                var librarianNew=_mapper.Map<UserViewModel>(await _userService.FindUser(_librarian.Email) ) ;
+              await _userService.AddToRole(null, _LibrarianRole,librarianNew);
             }
+            
+              
 
             if (!await _userService.IsInRole(user, _UserRole))
             {
-                await _userService.AddToRole(user, _UserRole);
+                var deffUserNew=_mapper.Map<UserViewModel>(await _userService.FindUser(_deffUser.Email) ) ;
+                await _userService.AddToRole(null, _UserRole,deffUserNew);
             }
         
         }
-
+            
+        
  
     }
 }
