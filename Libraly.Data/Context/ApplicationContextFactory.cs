@@ -10,7 +10,7 @@ namespace Libraly.Data.Context
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
             optionsBuilder.UseNpgsql("Server=localhost; Port=5432; Database=LibrReact; User ID=postgres; Password=password",
                 b => b.MigrationsAssembly("Libraly.Data"));
-
+//ыы
             return new ApplicationContext(optionsBuilder.Options);
         }
     }
