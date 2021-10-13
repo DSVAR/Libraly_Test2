@@ -20,7 +20,7 @@ namespace Libraly.TestUnit.UserController
     {
         private readonly CustomWebApplicationFactory<Startup> _factory;
 
-        private readonly RegisterViewModel _user = new RegisterViewModel
+        private static readonly RegisterViewModel _user = new RegisterViewModel
         {
             FirstName = "Test First Name",
             UserName = "Tests7",
@@ -29,6 +29,12 @@ namespace Libraly.TestUnit.UserController
             Email = "sobakens@gmail.com",
             Password = "Kavo2535",
             ConfirmPassword = "Kavo2535"
+        };
+
+        private readonly RoleViewModel _userRole = new RoleViewModel
+        {
+            Email = _user.Email,
+            RoleName = "Admin"
         };
 
         private readonly Dictionary<string, string> _role = new Dictionary<string, string>
@@ -127,7 +133,87 @@ namespace Libraly.TestUnit.UserController
         }
 
 
+       
         [Fact, Order(4)]
+        public async Task CreateRole()
+        {
+            try
+            {
+                var json = JsonConvert.SerializeObject(_role);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _factory.Client.PostAsync($"/UserC/CreateRole", content);
+                var responseBody = await response.Content.ReadAsStringAsync();
+                var jObject = JsonConvert.DeserializeObject(responseBody);
+                var token = JObject.Parse(jObject.ToString());
+                var succeeded = bool.Parse(token["succeeded"].ToString());
+                // Assert  
+
+                //  Assert.NotEmpty(models);
+                Assert.True(succeeded);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+        }
+
+        [Theory, Order(5)]
+        [InlineData("OBSERV")]
+        public async Task FindRole(string name)
+        {
+            try
+            {
+                var response = await _factory.Client.GetAsync($"/UserC/FindRole/{name}");
+                var responseBody = await response.Content.ReadAsStringAsync();
+                var jObject = JsonConvert.DeserializeObject(responseBody);
+                var token = JObject.Parse(jObject.ToString());
+                var succeeded = token["name"].ToString();
+                Assert.Equal(succeeded, name);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+        }
+
+
+        [Fact, Order(6)]
+        public async Task AddToRole()
+        {
+            var json =JsonConvert.SerializeObject(_userRole) ;
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _factory.Client.PostAsync($"/UserC/AddToRole", content);
+            var responseBody = await response.Content.ReadAsStringAsync();
+            var jObject = JsonConvert.DeserializeObject(responseBody);
+            var token = JObject.Parse(jObject.ToString());
+            var succeeded = bool.Parse(token["succeeded"].ToString());
+            
+            Assert.True(succeeded);
+        }
+
+        [Theory, Order(7)]
+        [InlineData("OBSERV")]
+        public async Task DeleteRole(string name)
+        {
+            try
+            {
+                var response = await _factory.Client.DeleteAsync($"/UserC/DeleteRole/{name}");
+                var responseBody = await response.Content.ReadAsStringAsync();
+                var jObject = JsonConvert.DeserializeObject(responseBody);
+                var token = JObject.Parse(jObject.ToString());
+                var succeeded = bool.Parse(token["succeeded"].ToString());
+                // Assert  
+
+                //  Assert.NotEmpty(models);
+                Assert.True(succeeded);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+        }
+        
+        [Fact, Order(8)]
         public async Task DeleteUser()
         {
             try
@@ -151,69 +237,18 @@ namespace Libraly.TestUnit.UserController
             }
         }
 
-
-        [Fact, Order(5)]
-        public async Task CreateRole()
+        [Fact,Order(9)]
+        public async Task RemoveToRole()
         {
-            try
-            {
-                var json = JsonConvert.SerializeObject(_role);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _factory.Client.PostAsync($"/UserC/CreateRole", content);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var jObject = JsonConvert.DeserializeObject(responseBody);
-                var token = JObject.Parse(jObject.ToString());
-                var succeeded = bool.Parse(token["succeeded"].ToString());
-                // Assert  
-
-                //  Assert.NotEmpty(models);
-                Assert.True(succeeded);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.ToString());
-            }
-        }
-
-        [Theory, Order(6)]
-        [InlineData("OBSERV")]
-        public async Task FindRole(string name)
-        {
-            try
-            {
-                var response = await _factory.Client.GetAsync($"/UserC/FindRole/{name}");
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var jObject = JsonConvert.DeserializeObject(responseBody);
-                var token = JObject.Parse(jObject.ToString());
-                var succeeded = token["name"].ToString();
-                Assert.Equal(succeeded, name);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.ToString());
-            }
-        }
-
-        [Theory, Order(7)]
-        [InlineData("OBSERV")]
-        public async Task DeleRole(string name)
-        {
-            try
-            {
-                var response = await _factory.Client.DeleteAsync($"/UserC/DeleteRole/{name}");
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var jObject = JsonConvert.DeserializeObject(responseBody);
-                var token = JObject.Parse(jObject.ToString());
-                var succeeded = bool.Parse(token["succeeded"].ToString());
-                // Assert  
-
-                //  Assert.NotEmpty(models);
-                Assert.True(succeeded);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.ToString());
-            }
+            var json =JsonConvert.SerializeObject(_userRole) ;
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _factory.Client.PostAsync("UserC/RemoveFromRole",content);
+            var responseBody = await response.Content.ReadAsStringAsync();
+            var jObject = JsonConvert.DeserializeObject(responseBody);
+            var token = JObject.Parse(jObject.ToString());
+            var succeeded = bool.Parse(token["succeeded"].ToString());
+            
+            Assert.True(succeeded);
         }
     }
 }

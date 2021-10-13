@@ -19,10 +19,11 @@ namespace Libraly_Test2.Controllers
     public class BookC : Controller
     {
         private readonly IBookService _service;
-        private DefaultJsonPattern DJP=new DefaultJsonPattern();
-        public BookC(IBookService service)
+        private readonly IDefaultJsonPattern _djp;
+        public BookC(IBookService service, IDefaultJsonPattern djp)
         {
             _service = service;
+            _djp = djp;
         }
 
         [HttpPost]
@@ -32,7 +33,7 @@ namespace Libraly_Test2.Controllers
             if (ModelState.IsValid)
             {
                 await _service.Creat(model);
-                var json = DJP.DefJsnP(200,  "succeeded");
+                var json = _djp.DeffPatternAnswer(200,  "succeeded");
                 return Ok(json);
             }
             else
@@ -45,7 +46,7 @@ namespace Libraly_Test2.Controllers
         [Route("GetBooks")]
         public async Task<IActionResult> GetBooks()
         {
-            var json = DJP.DefJsnP(200, "Found",  await _service.GetBooks());
+            var json = await _djp.DeffPatternAnswer(200, "Found",  await _service.GetBooks());
             return Ok(json);
         }
 
@@ -53,7 +54,7 @@ namespace Libraly_Test2.Controllers
         [Route("FindBook/{bookId}")]
         public async Task<IActionResult> FindBook(int bookId)
         {
-            var json = DJP.DefJsnP(200, "Found", await _service.FindBook(bookId));
+            var json = _djp.DeffPatternAnswer(200, "Found", await _service.FindBook(bookId));
             return Ok(json);
         }
 
@@ -64,11 +65,11 @@ namespace Libraly_Test2.Controllers
             try
             {
              var book=   await _service.DeleteBook(bookId);
-                return Ok(DJP.DefJsnP(200, "succeeded",book));
+                return Ok(_djp.DeffPatternAnswer(200, "succeeded",book));
             }
             catch(Exception ex)
             {
-                return BadRequest(DJP.DefJsnP(400, ex.Message));
+                return BadRequest(_djp.DeffPatternAnswer(400, ex.Message));
             }
 
         }
@@ -80,11 +81,11 @@ namespace Libraly_Test2.Controllers
             try
             {
                await _service.UpdateBook(book);
-                return Ok(DJP.DefJsnP(200, "succeeded"));
+                return Ok(_djp.DeffPatternAnswer(200, "succeeded"));
             }
             catch (Exception ex)
             {
-                return BadRequest(DJP.DefJsnP(400, ex.Message));
+                return BadRequest(_djp.DeffPatternAnswer(400, ex.Message));
             }
         }
     }

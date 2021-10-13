@@ -18,10 +18,12 @@ namespace Libraly_Test2.Controllers
     public class UserC : Controller
     {
         private readonly IUserService _userService;
+        private readonly IDefaultJsonPattern _defaultJson;
 
-        public UserC(IUserService userService)
+        public UserC(IUserService userService,IDefaultJsonPattern defaultJson)
         {
             _userService = userService;
+            _defaultJson = defaultJson;
         }
 
         // GET — получение ресурса
@@ -122,6 +124,24 @@ namespace Libraly_Test2.Controllers
         public async Task<IdentityRole> FindRole(string name)
         {
             return await _userService.FindRole(name);
+        }
+        
+        [HttpPost]
+        [Route("AddToRole")]
+        public async Task<IdentityResult> AddToRole(RoleViewModel role)
+        {
+            return await _userService.AddToRole(role);
+        }
+
+        [HttpPost]
+        [Route("RemoveFromRole")]
+        public async Task<string> RemoveRole(RoleViewModel role)
+        {
+            var result = await _userService.RemoveFromRole(role);
+            if (result.Succeeded)
+                return await _defaultJson.DeffPatternAnswer(200, "Was deleted");
+            else
+                return await _defaultJson.DeffPatternAnswer(200, "wasn't deleted" ,errors:result.Errors );
         }
     }
 }

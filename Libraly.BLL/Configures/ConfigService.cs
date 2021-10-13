@@ -3,6 +3,7 @@ using Libraly.BLL.Services;
 using Libraly.Data.Context;
 using Libraly.Data.Entities;
 using AutoMapper;
+using Libraly.BLL.JsonPatterns;
 using Libraly.BLL.Models.BookDTO;
 using Libraly.Data.Interfaces;
 using Libraly.Data.Repositories;
@@ -24,6 +25,7 @@ namespace Libraly.BLL.Configures
            services.AddAutoMapper(typeof(ConfigureOfMapping));
            services.AddTransient<ConfigureOfMapping>();
 
+           services.AddScoped(typeof(IDefaultJsonPattern), typeof(DefaultJsonPattern));
            services.AddScoped(typeof(IUserService), typeof(UserService));
            services.AddTransient(typeof(IBookService), typeof(BookService));
            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
