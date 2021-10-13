@@ -35,7 +35,7 @@ namespace Libraly_Test2.Controllers
         [Route("GetUsers")]
         public async Task<IActionResult> GetUsers()
         {            
-            return Ok(JsonConvert.SerializeObject(new {Users = await _userService.GetUsers() }) );
+            return Ok(await _defaultJson.DeffPatternAnswer(200,"Found users",await _userService.GetUsers() ));
         }
 
         [HttpPost]
@@ -47,7 +47,7 @@ namespace Libraly_Test2.Controllers
                 var result = await _userService.Create(user);
                 if (result.Succeeded)
                 {
-                    return Ok(user);
+                    return Ok(await _defaultJson.DeffPatternAnswer(200,"Added"));
                 }
 
                 else
@@ -57,22 +57,26 @@ namespace Libraly_Test2.Controllers
                         ModelState.AddModelError(error.Code, error.Description);
                     }
 
-                    return BadRequest(ModelState);
+                    return BadRequest(await _defaultJson.DeffPatternAnswer(200,"Wasn't delete", errors: ModelState));
                 }
             }
 
             else
             {
-                return BadRequest(ModelState);
+                return BadRequest(await _defaultJson.DeffPatternAnswer(200,"Can't create user",errors: ModelState));
             }
         }
 
 
         [HttpGet]
         [Route("FindUser/{email}")]
-        public Task<User> FindUser(string email)
+        public async Task<string> FindUser(string email)
         {
-            return _userService.FindUser(email);
+            var result=await _userService.FindUser(email);
+            if (result != null)
+                return await _defaultJson.DeffPatternAnswer(200, "Found", result);
+            else
+                return await _defaultJson.DeffPatternAnswer(200, "Not Found");
         }
 
         [HttpDelete]
@@ -85,7 +89,7 @@ namespace Libraly_Test2.Controllers
                 var result = await _userService.DeleteUser(user);
                 if (result.Succeeded)
                 {
-                    return Ok(user);
+                    return Ok(await _defaultJson.DeffPatternAnswer(200,"Added", user));
                 }
                 else
                 {
@@ -94,43 +98,61 @@ namespace Libraly_Test2.Controllers
                         ModelState.AddModelError(error.Code, error.Description);
                     }
 
-                    return BadRequest(ModelState);
+                    return BadRequest(await _defaultJson.DeffPatternAnswer(200,"Wasn't delete", errors: ModelState));
                 }
             }
 
             else
             {
-                return BadRequest("Not found user!");
+                return BadRequest(await _defaultJson.DeffPatternAnswer(200,"wasn't found user"));
             }
         }
 
 
         [HttpPost]
         [Route("CreateRole")]
-        public Task<IdentityResult> CreateRole(IdentityRole roleName)
+        public async Task<string> CreateRole(IdentityRole roleName)
         {
-            return _userService.CreateRole(roleName.Name);
+            var  result=await _userService.CreateRole(roleName.Name);
+
+            return await _defaultJson.DeffPatternAnswer(200,"Created",result);
         }
 
         [HttpDelete]
         [Route("DeleteRole/{name}")]
-        public async Task<IdentityResult> DeleteRole(string name)
+        public async Task<string> DeleteRole(string name)
         {
-            return await _userService.DeleteRole(name);
+            var  result=await _userService.DeleteRole(name);
+            if (result.Succeeded)
+                return await _defaultJson.DeffPatternAnswer(200, "Deleted");
+            else
+                return await _defaultJson.DeffPatternAnswer(200, "Wasn't delete", errors: result.Errors);
         }
 
         [HttpGet]
         [Route("FindRole/{name}")]
-        public async Task<IdentityRole> FindRole(string name)
+        public async Task<string> FindRole(string name)
         {
-            return await _userService.FindRole(name);
+            var result=await _userService.FindRole(name);
+            if (result != null)
+                return await _defaultJson.DeffPatternAnswer(200, "Found", result);
+            else return await _defaultJson.DeffPatternAnswer(200, "Not Found");
         }
         
         [HttpPost]
         [Route("AddToRole")]
-        public async Task<IdentityResult> AddToRole(RoleViewModel role)
+        public async Task<string> AddToRole(RoleViewModel role)
         {
-            return await _userService.AddToRole(role);
+            var result= await _userService.AddToRole(role);
+
+            if (result.Succeeded)
+            {
+               return await _defaultJson.DeffPatternAnswer(200, "Added");
+            }
+            else
+            {
+                return await _defaultJson.DeffPatternAnswer(200, "Wasn't add",errors: result.Errors);
+            }
         }
 
         [HttpPost]
@@ -139,9 +161,9 @@ namespace Libraly_Test2.Controllers
         {
             var result = await _userService.RemoveFromRole(role);
             if (result.Succeeded)
-                return await _defaultJson.DeffPatternAnswer(200, "Was deleted");
+                return await _defaultJson.DeffPatternAnswer(200, "Deleted");
             else
-                return await _defaultJson.DeffPatternAnswer(200, "wasn't deleted" ,errors:result.Errors );
+                return await _defaultJson.DeffPatternAnswer(200, "wasn't delete" ,errors:result.Errors );
         }
     }
 }
