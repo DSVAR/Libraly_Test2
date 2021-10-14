@@ -47,7 +47,7 @@ namespace Libraly_Test2.Controllers
                 var result = await _userService.Create(user);
                 if (result.Succeeded)
                 {
-                    return Ok(await _defaultJson.DeffPatternAnswer(200,"Added"));
+                    return Ok(await _defaultJson.DeffPatternAnswer(201,"Added"));
                 }
 
                 else
@@ -57,26 +57,26 @@ namespace Libraly_Test2.Controllers
                         ModelState.AddModelError(error.Code, error.Description);
                     }
 
-                    return BadRequest(await _defaultJson.DeffPatternAnswer(200,"Wasn't delete", errors: ModelState));
+                    return BadRequest(await _defaultJson.DeffPatternAnswer(400,"Wasn't delete", errors: ModelState));
                 }
             }
 
             else
             {
-                return BadRequest(await _defaultJson.DeffPatternAnswer(200,"Can't create user",errors: ModelState));
+                return BadRequest(await _defaultJson.DeffPatternAnswer(400,"Can't create user",errors: ModelState));
             }
         }
 
 
         [HttpGet]
         [Route("FindUser/{email}")]
-        public async Task<string> FindUser(string email)
+        public async Task<IActionResult> FindUser(string email)
         {
             var result=await _userService.FindUser(email);
             if (result != null)
-                return await _defaultJson.DeffPatternAnswer(200, "Found", result);
+                return Ok( await _defaultJson.DeffPatternAnswer(200, "Found", result));
             else
-                return await _defaultJson.DeffPatternAnswer(200, "Not Found");
+                return BadRequest( await _defaultJson.DeffPatternAnswer(200, "Not Found") );
         }
 
         [HttpDelete]
@@ -89,7 +89,7 @@ namespace Libraly_Test2.Controllers
                 var result = await _userService.DeleteUser(user);
                 if (result.Succeeded)
                 {
-                    return Ok(await _defaultJson.DeffPatternAnswer(200,"Added", user));
+                    return Ok(await _defaultJson.DeffPatternAnswer(202,"Deleted", user));
                 }
                 else
                 {
@@ -98,13 +98,13 @@ namespace Libraly_Test2.Controllers
                         ModelState.AddModelError(error.Code, error.Description);
                     }
 
-                    return BadRequest(await _defaultJson.DeffPatternAnswer(200,"Wasn't delete", errors: ModelState));
+                    return BadRequest(await _defaultJson.DeffPatternAnswer(400,"Wasn't delete", errors: ModelState));
                 }
             }
 
             else
             {
-                return BadRequest(await _defaultJson.DeffPatternAnswer(200,"wasn't found user"));
+                return BadRequest(await _defaultJson.DeffPatternAnswer(400,"wasn't found user"));
             }
         }
 
@@ -115,7 +115,7 @@ namespace Libraly_Test2.Controllers
         {
             var  result=await _userService.CreateRole(roleName.Name);
 
-            return await _defaultJson.DeffPatternAnswer(200,"Created",result);
+            return await _defaultJson.DeffPatternAnswer(201,"Created",result);
         }
 
         [HttpDelete]
@@ -124,9 +124,9 @@ namespace Libraly_Test2.Controllers
         {
             var  result=await _userService.DeleteRole(name);
             if (result.Succeeded)
-                return await _defaultJson.DeffPatternAnswer(200, "Deleted");
+                return await _defaultJson.DeffPatternAnswer(202, "Deleted");
             else
-                return await _defaultJson.DeffPatternAnswer(200, "Wasn't delete", errors: result.Errors);
+                return await _defaultJson.DeffPatternAnswer(400, "Wasn't delete", errors: result.Errors);
         }
 
         [HttpGet]
@@ -136,7 +136,7 @@ namespace Libraly_Test2.Controllers
             var result=await _userService.FindRole(name);
             if (result != null)
                 return await _defaultJson.DeffPatternAnswer(200, "Found", result);
-            else return await _defaultJson.DeffPatternAnswer(200, "Not Found");
+            else return await _defaultJson.DeffPatternAnswer(204, "Not Found");
         }
         
         [HttpPost]
@@ -147,11 +147,11 @@ namespace Libraly_Test2.Controllers
 
             if (result.Succeeded)
             {
-               return await _defaultJson.DeffPatternAnswer(200, "Added");
+               return await _defaultJson.DeffPatternAnswer(201, "Added");
             }
             else
             {
-                return await _defaultJson.DeffPatternAnswer(200, "Wasn't add",errors: result.Errors);
+                return await _defaultJson.DeffPatternAnswer(400, "Wasn't add",errors: result.Errors);
             }
         }
 
@@ -161,9 +161,9 @@ namespace Libraly_Test2.Controllers
         {
             var result = await _userService.RemoveFromRole(role);
             if (result.Succeeded)
-                return await _defaultJson.DeffPatternAnswer(200, "Deleted");
+                return await _defaultJson.DeffPatternAnswer(202, "Deleted");
             else
-                return await _defaultJson.DeffPatternAnswer(200, "wasn't delete" ,errors:result.Errors );
+                return await _defaultJson.DeffPatternAnswer(400, "wasn't delete" ,errors:result.Errors );
         }
     }
 }
