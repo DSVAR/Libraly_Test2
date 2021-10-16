@@ -57,7 +57,7 @@ namespace Libraly_Test2.Controllers
                         ModelState.AddModelError(error.Code, error.Description);
                     }
 
-                    return BadRequest(await _defaultJson.DeffPatternAnswer(400,"Wasn't delete", errors: ModelState));
+                    return BadRequest(await _defaultJson.DeffPatternAnswer(400,"Wasn't add user", errors: ModelState));
                 }
             }
 
@@ -76,7 +76,7 @@ namespace Libraly_Test2.Controllers
             if (result != null)
                 return Ok( await _defaultJson.DeffPatternAnswer(200, "Found", result));
             else
-                return BadRequest( await _defaultJson.DeffPatternAnswer(200, "Not Found") );
+                return BadRequest( await _defaultJson.DeffPatternAnswer(400, "Not Found") );
         }
 
         [HttpDelete]
@@ -115,7 +115,10 @@ namespace Libraly_Test2.Controllers
         {
             var  result=await _userService.CreateRole(roleName.Name);
 
-            return await _defaultJson.DeffPatternAnswer(201,"Created",result);
+            if (result.Succeeded)
+                return await _defaultJson.DeffPatternAnswer(201, "Created", result);
+            else
+                return await _defaultJson.DeffPatternAnswer(400, "Wasn't add role", errors: result.Errors);
         }
 
         [HttpDelete]

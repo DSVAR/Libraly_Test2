@@ -47,6 +47,7 @@ namespace Libraly_Test2.Controllers
         public async Task<IActionResult> GetBooks()
         {
             var json = await _djp.DeffPatternAnswer(200, "Found",  await _service.GetBooks());
+            
             return Ok(json);
         }
 

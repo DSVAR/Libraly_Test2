@@ -34,7 +34,7 @@ namespace Libraly_Test2
 
             ConfigService.InitServices(services, Configuration);
             services.AddScoped<UserRole>();
-            
+
             SettingBD(services, Configuration);
             services.AddControllersWithViews();
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
@@ -50,7 +50,6 @@ namespace Libraly_Test2
             }
             else
             {
-                
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
@@ -62,7 +61,7 @@ namespace Libraly_Test2
 
             app.UseRouting();
 
-            
+
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -89,31 +88,32 @@ namespace Libraly_Test2
         {
             if (_currentEnvironment.IsEnvironment("Testing"))
             {
-                var connectionString ="Server=localhost; Port=5432; Database=LibrReact; UserID=postgres; Password=password; "  ;
+                var connectionString =
+                    "Server=localhost; Port=5432; Database=LibrReact; UserID=postgres; Password=password; ";
                 services.AddDbContext<ApplicationContext>(
-                    options => {
+                    options =>
+                    {
                         options.UseNpgsql(connectionString,
-                b => b.MigrationsAssembly("Libraly.Data")
-            );
+                            b => b.MigrationsAssembly("Libraly.Data")
+                        );
                         options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-                        });
-            // костыль и велосипед
-          
+                    });
+                // костыль и велосипед
 
+              
             }
             else
             {
-               
                 services.AddDbContext<ApplicationContext>(
-                    options => {
+                    options =>
+                    {
                         options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
-                b => b.MigrationsAssembly("Libraly.Data")
-            );
+                            b => b.MigrationsAssembly("Libraly.Data")
+                        );
                         options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
                     }
-                    );
+                );
             }
         }
-
     }
 }

@@ -60,9 +60,6 @@ namespace Libraly_Test2.Init
             UserName = "OnionUser"
         };
 
-
-
-
         private string _adminRole = "Admin";
         private string _LibrarianRole = "Librarian";
         private string _UserRole = "User";
