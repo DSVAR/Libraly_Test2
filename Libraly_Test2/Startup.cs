@@ -55,7 +55,8 @@ namespace Libraly_Test2
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+        //    app.UseHttpsRedirection();
+            
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 

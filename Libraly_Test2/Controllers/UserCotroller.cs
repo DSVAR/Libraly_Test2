@@ -34,7 +34,7 @@ namespace Libraly_Test2.Controllers
         [HttpGet]
         [Route("GetUsers")]
         public async Task<IActionResult> GetUsers()
-        {            
+        {
             return Ok(await _defaultJson.DeffPatternAnswer(200,"Found users",await _userService.GetUsers() ));
         }
 
@@ -89,7 +89,7 @@ namespace Libraly_Test2.Controllers
                 var result = await _userService.DeleteUser(user);
                 if (result.Succeeded)
                 {
-                    return Ok(await _defaultJson.DeffPatternAnswer(202,"Deleted", user));
+                    return Accepted(await _defaultJson.DeffPatternAnswer(202,"Accepted", user));
                 }
                 else
                 {
@@ -111,62 +111,66 @@ namespace Libraly_Test2.Controllers
 
         [HttpPost]
         [Route("CreateRole")]
-        public async Task<string> CreateRole(IdentityRole roleName)
+        public async Task<IActionResult> CreateRole(IdentityRole roleName)
         {
             var  result=await _userService.CreateRole(roleName.Name);
 
             if (result.Succeeded)
-                return await _defaultJson.DeffPatternAnswer(201, "Created", result);
+                return Created( HttpContext.Request.Host.Value,await _defaultJson.DeffPatternAnswer(201, "Created", result));
             else
-                return await _defaultJson.DeffPatternAnswer(400, "Wasn't add role", errors: result.Errors);
+                return BadRequest( await _defaultJson.DeffPatternAnswer(400, "Wasn't add role", errors: result.Errors));
         }
 
         [HttpDelete]
         [Route("DeleteRole/{name}")]
-        public async Task<string> DeleteRole(string name)
+        public async Task<IActionResult> DeleteRole(string name)
         {
             var  result=await _userService.DeleteRole(name);
             if (result.Succeeded)
-                return await _defaultJson.DeffPatternAnswer(202, "Deleted");
+                return Ok( await _defaultJson.DeffPatternAnswer(202, "Deleted"));
             else
-                return await _defaultJson.DeffPatternAnswer(400, "Wasn't delete", errors: result.Errors);
+                return BadRequest( await _defaultJson.DeffPatternAnswer(400, "Wasn't delete", errors: result.Errors));
         }
 
         [HttpGet]
         [Route("FindRole/{name}")]
-        public async Task<string> FindRole(string name)
+        public async Task<IActionResult> FindRole(string name)
         {
             var result=await _userService.FindRole(name);
             if (result != null)
-                return await _defaultJson.DeffPatternAnswer(200, "Found", result);
-            else return await _defaultJson.DeffPatternAnswer(204, "Not Found");
+                return Ok( await _defaultJson.DeffPatternAnswer(200, "Found", result));
+            else return BadRequest( await _defaultJson.DeffPatternAnswer(204, "Not Found"));
         }
         
         [HttpPost]
         [Route("AddToRole")]
-        public async Task<string> AddToRole(RoleViewModel role)
+        public async Task<IActionResult> AddToRole(RoleViewModel role)
         {
-            var result= await _userService.AddToRole(role);
+            if (ModelState.IsValid)
+            {
+                var result = await _userService.AddToRole(role);
 
-            if (result.Succeeded)
-            {
-               return await _defaultJson.DeffPatternAnswer(201, "Added");
+                if (result.Succeeded)
+                {
+                    return Created( HttpContext.Request.Host.Value ,await _defaultJson.DeffPatternAnswer(201, "Added"));
+                }
+                else
+                {
+                    return BadRequest( await _defaultJson.DeffPatternAnswer(400, "Wasn't add", errors: result.Errors));
+                }
             }
-            else
-            {
-                return await _defaultJson.DeffPatternAnswer(400, "Wasn't add",errors: result.Errors);
-            }
+            else return BadRequest(await _defaultJson.DeffPatternAnswer(400,errors: ModelState ));
         }
 
         [HttpPost]
         [Route("RemoveFromRole")]
-        public async Task<string> RemoveRole(RoleViewModel role)
+        public async Task<IActionResult> RemoveRole(RoleViewModel role)
         {
             var result = await _userService.RemoveFromRole(role);
             if (result.Succeeded)
-                return await _defaultJson.DeffPatternAnswer(202, "Deleted");
+                return Accepted(await _defaultJson.DeffPatternAnswer(202,"Accepted"));
             else
-                return await _defaultJson.DeffPatternAnswer(400, "wasn't delete" ,errors:result.Errors );
+                return BadRequest( await _defaultJson.DeffPatternAnswer(400, "wasn't delete" ,errors:result.Errors ));
         }
     }
 }

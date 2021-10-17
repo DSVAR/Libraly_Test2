@@ -31,6 +31,8 @@ namespace Libraly.BLL.Configures
            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
            
            services.AddScoped<IUnitOfWork,UnitOfWorkRepo>();
+
+           services.AddHttpContextAccessor();
             return services;
         }
         

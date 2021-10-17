@@ -1,16 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using System.Threading.Tasks;
 using Libraly.BLL.Interfaces;
-using Libraly.BLL.JsonPatterns;
 using Libraly.BLL.Models.BookDTO;
-using Libraly.BLL.Services;
-using Libraly.Data.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Newtonsoft.Json;
+
 
 namespace Libraly_Test2.Controllers
 {
@@ -20,7 +13,8 @@ namespace Libraly_Test2.Controllers
     {
         private readonly IBookService _service;
         private readonly IDefaultJsonPattern _djp;
-        public BookC(IBookService service, IDefaultJsonPattern djp)
+
+        public BookC(IBookService service, IDefaultJsonPattern djp, IHttpContextAccessor accessor)
         {
             _service = service;
             _djp = djp;
@@ -33,8 +27,8 @@ namespace Libraly_Test2.Controllers
             if (ModelState.IsValid)
             {
                 await _service.Creat(model);
-                var json = _djp.DeffPatternAnswer(200,  "succeeded");
-                return Ok(json);
+                var json = await _djp.DeffPatternAnswer(201, "succeeded");
+                return Created(HttpContext.Request.Host.Value, json);
             }
             else
             {
@@ -46,48 +40,43 @@ namespace Libraly_Test2.Controllers
         [Route("GetBooks")]
         public async Task<IActionResult> GetBooks()
         {
-            var json = await _djp.DeffPatternAnswer(200, "Found",  await _service.GetBooks());
-            
-            return Ok(json);
+            var result = await _service.GetBooks();
+            if (result != null)
+            {
+                var json = await _djp.DeffPatternAnswer(200, "", result);
+                return Ok(json);
+                // return Created(HttpContext.Request.Host.Value,json);
+            }
+            else return NoContent();
         }
 
         [HttpGet]
         [Route("FindBook/{bookId}")]
         public async Task<IActionResult> FindBook(int bookId)
         {
-            var json = _djp.DeffPatternAnswer(200, "Found", await _service.FindBook(bookId));
-            return Ok(json);
+            var result = await _service.FindBook(bookId);
+            if (result != null)
+            {
+                return Ok(await _djp.DeffPatternAnswer(200, "Found", result));
+            }
+            else
+                return NoContent();
         }
 
         [HttpDelete]
         [Route("DeleteBook/{bookId}")]
         public async Task<IActionResult> DeleteBook(int bookId)
         {
-            try
-            {
-             var book=   await _service.DeleteBook(bookId);
-                return Ok(_djp.DeffPatternAnswer(200, "succeeded",book));
-            }
-            catch(Exception ex)
-            {
-                return BadRequest(_djp.DeffPatternAnswer(400, ex.Message));
-            }
-
+            var book = await _service.DeleteBook(bookId);
+            return Ok(await _djp.DeffPatternAnswer(200, "succeeded", book));
         }
 
         [HttpPost]
         [Route("BookUpdate")]
         public async Task<IActionResult> UpdateBook(UpdateBookViewModel book)
         {
-            try
-            {
-               await _service.UpdateBook(book);
-                return Ok(_djp.DeffPatternAnswer(200, "succeeded"));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(_djp.DeffPatternAnswer(400, ex.Message));
-            }
+            await _service.UpdateBook(book);
+            return Ok(await _djp.DeffPatternAnswer(200, "succeeded"));
         }
     }
 }
