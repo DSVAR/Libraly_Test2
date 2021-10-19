@@ -83,8 +83,7 @@ namespace Libraly.BLL.Services
             return await _roleManager.FindByNameAsync(name);
         }
 
-        public async Task<IdentityResult> AddToRole(AddToRoleViewModel userModel = null, string role = null,
-            UserViewModel userViewModel = null)
+        public async Task<IdentityResult> AddToRole(RoleViewModel userModel, string role = null, UserViewModel userViewModel = null)
         {
             if (userModel != null)
             {
@@ -94,9 +93,16 @@ namespace Libraly.BLL.Services
             else return await _userManager.AddToRoleAsync(userViewModel, role);
         }
 
+        
+
         public async Task<bool> IsInRole(UserViewModel user, string role)
         {
             return await _userManager.IsInRoleAsync(user, role);
+        }
+
+        public Task<IdentityResult> RemoveFromRole(RoleViewModel userModel, string role = null, UserViewModel userViewModel = null)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

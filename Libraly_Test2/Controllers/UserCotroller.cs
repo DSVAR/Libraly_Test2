@@ -159,7 +159,7 @@ namespace Libraly_Test2.Controllers
                     return BadRequest( await _defaultJson.DeffPatternAnswer(400, "Wasn't add", errors: result.Errors));
                 }
             }
-            else return BadRequest(await _defaultJson.DeffPatternAnswer(400,errors: ModelState ));
+            else return BadRequest(await _defaultJson.DeffPatternAnswer(400,errors: ModelState) );
         }
 
         [HttpPost]

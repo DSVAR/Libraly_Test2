@@ -11,7 +11,7 @@ namespace Libraly.BLL.JsonPatterns
 {
     public class DefaultJsonPattern:IDefaultJsonPattern
     {
-        public async Task<string> DeffPatternAnswer(int status, string message,object item=null,dynamic errors=null)
+        public async Task<string> DeffPatternAnswer(int status, string message=null,object item=null,dynamic errors=null)
         {
          return await Task.Run((() =>
             {
@@ -25,4 +25,6 @@ namespace Libraly.BLL.JsonPatterns
            
         }
     }
+
+
 }
