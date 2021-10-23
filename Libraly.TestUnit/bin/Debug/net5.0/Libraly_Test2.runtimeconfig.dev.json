@@ -1,0 +1,9 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\DVAR\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\DVAR\\.nuget\\packages",
+      "D:\\Visual\\Shared\\NuGetPackages"
+    ]
+  }
+}

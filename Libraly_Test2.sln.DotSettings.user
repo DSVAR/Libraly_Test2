@@ -1,0 +1,41 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\DVAR\AppData\Local\JetBrains\Rider2021.1\resharper-host\temp\Rider\vAny\CoverageData\_Libraly_Test2.129377645\Snapshot\snapshot.utdcvr</s:String>
+	
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2b526875_002D213f_002D4a50_002D81a5_002Dccd86878baf8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetBooks" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::D0A19FA5-1C64-4751-95B8-094C9D888035::net5.0::Libraly.TestUnit.BookController.TestBook.GetBooks&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D0A19FA5-1C64-4751-95B8-094C9D888035::net5.0::Libraly.TestUnit.UserController.TestUser.GetUsers&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D0A19FA5-1C64-4751-95B8-094C9D888035::net5.0::Libraly.TestUnit.BookController.TestBook.FindBook&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D0A19FA5-1C64-4751-95B8-094C9D888035::net5.0::Libraly.TestUnit.BookController.TestBook.CreateBook&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D0A19FA5-1C64-4751-95B8-094C9D888035::net5.0::Libraly.TestUnit.BookController.TestBook.DeleteBook&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D0A19FA5-1C64-4751-95B8-094C9D888035::net5.0::Libraly.TestUnit.BookController.TestBook&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D0A19FA5-1C64-4751-95B8-094C9D888035::net5.0::Libraly.TestUnit.UserController.TestUser&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</wpf:ResourceDictionary>
