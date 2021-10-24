@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "llfSTym4TwnGjqZn659V3yOkRQ9mUyIXKUZw/1UbaKrKYWiikMjJ9otxuQs+8SQAlnqQ6qiQVEpm/O5LF8CW4w==",
-  "success": true,
-  "projectFilePath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.TestUnit\\Libraly.TestUnit.csproj",
+  "dgSpecHash": "sCBX08A7/RC1arDqzPIr5nn4ljQKap0/TWJvRzU7Y9qTSe24OIPM9OWdoqC7d8r3t/0QasdVV0KuEFDlAezmJg==",
+  "success": false,
+  "projectFilePath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.TestUnit\\Libraly.TestUnit.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DVAR\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
@@ -260,5 +260,15 @@
     "C:\\Users\\DVAR\\.nuget\\packages\\xunit.extensions.ordering\\1.4.5\\xunit.extensions.ordering.1.4.5.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\пробы\\aspNet\\react\\Libraly\\TestProject1\\TestProject1.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\пробы\\aspNet\\react\\Libraly\\TestProject1\\TestProject1.csproj",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

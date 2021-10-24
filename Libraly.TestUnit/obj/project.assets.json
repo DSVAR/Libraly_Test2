@@ -4178,6 +4178,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "D:\\пробы\\aspNet\\react\\Libraly\\TestProject1\\TestProject1.csproj": "1.0.0",
           "EntityFramework": "6.4.4",
           "Libraly.BLL": "1.0.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -4185,8 +4186,7 @@
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.AspNetCore.SpaServices.Extensions": "5.0.4",
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.6",
-          "TestProject1": "1.0.0"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.6"
         },
         "compile": {
           "bin/placeholder/Libraly_Test2.dll": {}
@@ -4197,20 +4197,6 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
-      },
-      "TestProject1/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.NET.Test.Sdk": "16.7.1",
-          "xunit": "2.4.1"
-        },
-        "compile": {
-          "bin/placeholder/TestProject1.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TestProject1.dll": {}
-        }
       }
     }
   },
@@ -12371,11 +12357,6 @@
       "type": "project",
       "path": "../Libraly_Test2/Libraly_Test2.csproj",
       "msbuildProject": "../Libraly_Test2/Libraly_Test2.csproj"
-    },
-    "TestProject1/1.0.0": {
-      "type": "project",
-      "path": "../TestProject1/TestProject1.csproj",
-      "msbuildProject": "../TestProject1/TestProject1.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -12399,11 +12380,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.TestUnit\\Libraly.TestUnit.csproj",
+      "projectUniqueName": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.TestUnit\\Libraly.TestUnit.csproj",
       "projectName": "Libraly.TestUnit",
-      "projectPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.TestUnit\\Libraly.TestUnit.csproj",
+      "projectPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.TestUnit\\Libraly.TestUnit.csproj",
       "packagesPath": "C:\\Users\\DVAR\\.nuget\\packages\\",
-      "outputPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.TestUnit\\obj\\",
+      "outputPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.TestUnit\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Visual\\Shared\\NuGetPackages"
@@ -12424,14 +12405,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.BLL\\Libraly.BLL.csproj": {
-              "projectPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.BLL\\Libraly.BLL.csproj"
+            "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.BLL\\Libraly.BLL.csproj": {
+              "projectPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.BLL\\Libraly.BLL.csproj"
             },
-            "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj": {
-              "projectPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj"
+            "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj": {
+              "projectPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj"
             },
-            "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly_Test2\\Libraly_Test2.csproj": {
-              "projectPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly_Test2\\Libraly_Test2.csproj"
+            "D:\\пробы\\aspNet\\react\\Libraly\\Libraly_Test2\\Libraly_Test2.csproj": {
+              "projectPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly_Test2\\Libraly_Test2.csproj"
             }
           }
         }
@@ -12500,5 +12481,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\пробы\\aspNet\\react\\Libraly\\TestProject1\\TestProject1.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\пробы\\aspNet\\react\\Libraly\\TestProject1\\TestProject1.csproj",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

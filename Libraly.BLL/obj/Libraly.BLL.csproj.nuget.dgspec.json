@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.BLL\\Libraly.BLL.csproj": {}
+    "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.BLL\\Libraly.BLL.csproj": {}
   },
   "projects": {
-    "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.BLL\\Libraly.BLL.csproj": {
+    "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.BLL\\Libraly.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.BLL\\Libraly.BLL.csproj",
+        "projectUniqueName": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.BLL\\Libraly.BLL.csproj",
         "projectName": "Libraly.BLL",
-        "projectPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.BLL\\Libraly.BLL.csproj",
+        "projectPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.BLL\\Libraly.BLL.csproj",
         "packagesPath": "C:\\Users\\DVAR\\.nuget\\packages\\",
-        "outputPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.BLL\\obj\\",
+        "outputPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj": {
-                "projectPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj"
+              "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj": {
+                "projectPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj"
               }
             }
           }
@@ -116,14 +116,14 @@
         }
       }
     },
-    "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj": {
+    "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj",
+        "projectUniqueName": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj",
         "projectName": "Libraly.Data",
-        "projectPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj",
+        "projectPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj",
         "packagesPath": "C:\\Users\\DVAR\\.nuget\\packages\\",
-        "outputPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\obj\\",
+        "outputPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual\\Shared\\NuGetPackages"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj": {}
+    "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj": {}
   },
   "projects": {
-    "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj": {
+    "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj",
+        "projectUniqueName": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj",
         "projectName": "Libraly.Data",
-        "projectPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj",
+        "projectPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj",
         "packagesPath": "C:\\Users\\DVAR\\.nuget\\packages\\",
-        "outputPath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\obj\\",
+        "outputPath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual\\Shared\\NuGetPackages"

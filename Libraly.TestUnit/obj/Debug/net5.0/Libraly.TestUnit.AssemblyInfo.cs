@@ -10,9 +10,9 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Libraly.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.BLL", "Libraly.BLL.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Libraly.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data", "Libraly.Data.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Libraly_Test2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly_Test2", "Libraly_Test2.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Libraly.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.BLL", "Libraly.BLL.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Libraly.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data", "Libraly.Data.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Libraly_Test2", "D:\\пробы\\aspNet\\react\\Libraly\\Libraly_Test2", "Libraly_Test2.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Libraly.TestUnit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
