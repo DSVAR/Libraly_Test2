@@ -7,21 +7,10 @@ import FooterContainer from "./Components/Footer/FooterContainer";
 function App() {
     return (
         <div className="App">
-            {/*<div  className="item hed">*/}
-                 <HeaderContainer/>
-            {/*</div>*/}
 
-            {/*<div  className="item nav">*/}
-                <NavbarContainer/>
-            {/*</div>*/}
-
-            {/*<div  className="item page">*/}
-                <SomePagesContainer/>
-            {/*</div>*/}
-
-            {/*<div className="item fot">*/}
-            {/*    <FooterContainer/>*/}
-            {/*</div>*/}
+            <HeaderContainer/>
+            <NavbarContainer/>
+            <SomePagesContainer/>
         </div>
     );
 }

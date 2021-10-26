@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "sCBX08A7/RC1arDqzPIr5nn4ljQKap0/TWJvRzU7Y9qTSe24OIPM9OWdoqC7d8r3t/0QasdVV0KuEFDlAezmJg==",
-  "success": false,
-  "projectFilePath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.TestUnit\\Libraly.TestUnit.csproj",
+  "dgSpecHash": "UQJOtFYxYmqtXNr0psF6zut8u2vSgRjIJO46qjKf8B7wmHqjTBjm+eMbP+U4AtfnH+jRIDcUuyFZdt0rUxCxjQ==",
+  "success": true,
+  "projectFilePath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.TestUnit\\Libraly.TestUnit.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DVAR\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
-    "C:\\Users\\DVAR\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
+    "C:\\Users\\DVAR\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
@@ -260,15 +260,5 @@
     "C:\\Users\\DVAR\\.nuget\\packages\\xunit.extensions.ordering\\1.4.5\\xunit.extensions.ordering.1.4.5.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'D:\\пробы\\aspNet\\react\\Libraly\\TestProject1\\TestProject1.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "D:\\пробы\\aspNet\\react\\Libraly\\TestProject1\\TestProject1.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "logs": []
 }

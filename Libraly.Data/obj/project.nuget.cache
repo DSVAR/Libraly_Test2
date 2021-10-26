@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZDHLl8RYk530hd16bxslUhcdfakEf01SjlVzGJ8zyH8/5bZ4CS415CK7/0U5lJSQ9H9L/gALaT0NSgAKBdtiBw==",
+  "dgSpecHash": "77zcU3w1MHt5tweqV2Gb7I54RRfUX8m7nWSKgM4zkYcVhUHdqTwAKqxUy+reV/SBeJOD6lZZIzwTg7Vk8aQPHg==",
   "success": true,
-  "projectFilePath": "D:\\пробы\\aspNet\\react\\Libraly\\Libraly.Data\\Libraly.Data.csproj",
+  "projectFilePath": "D:\\пробы\\aspNet\\react\\Libraly_Test2\\Libraly.Data\\Libraly.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DVAR\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\DVAR\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

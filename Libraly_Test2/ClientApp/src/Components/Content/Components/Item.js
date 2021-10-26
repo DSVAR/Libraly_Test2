@@ -1,9 +1,12 @@
 import React from 'react';
+import Button from "../../../StyledComponents/LittleComponents/Button";
+
 
 const Item = () => {
     return (
         <div>
-            ЬТипа контент
+           <Button hoverBack="white" color="red">swer</Button>
+            <button>swe</button>
         </div>
     );
 };
