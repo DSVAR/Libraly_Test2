@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="510f72ce-1cc5-4f0d-9d0b-b96cf217b4ad" name="Changes" comment="nav">
+    <list default="true" id="ad806774-4e89-49f0-a4ba-4ec03ff29f81" name="Changes" comment="nav end">
+      <change afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/LittleComponents/Div.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/LittleComponents/Button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/LittleComponents/Button.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/LittleComponents/Input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/LittleComponents/Input.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,54 +17,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="205tuOSBYAzqXt7Fm0OTQwY2W0p" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="510f72ce-1cc5-4f0d-9d0b-b96cf217b4ad" name="Changes" comment="" />
-      <created>1635346498098</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1635346498098</updated>
-      <workItem from="1635346499504" duration="955000" />
-    </task>
-    <task id="LOCAL-00001" summary="nav">
-      <created>1635347707038</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1635347707038</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="nav" />
-    <option name="LAST_COMMIT_MESSAGE" value="nav" />
   </component>
 </project>

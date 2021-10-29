@@ -12,13 +12,11 @@ const Animation=keyframes`
     border-style: solid;
     border-color: red darkred aquamarine aqua;
     box-shadow: 0.3em -0.1em 1em red;
-
   }
   50%{
     border-style: solid;
     border-color: aqua aquamarine darkred red;
-    box-shadow: -0.3em 0.1em 1em red ;
-    
+    box-shadow: -0.3em 0.1em 1em red;    
   }
 `
 
@@ -28,12 +26,10 @@ const StyledInput = styled.input`
   border: solid 0.4vh ${props => props.borderColor || 'green'};
   border-radius: 2rem;
   margin: 1vh auto;
-  height: 30%;
   outline: 0;
   outline-offset: 0;
-  
-  
-  
+  position: relative;
+  width: 90%;  
   :active {
     outline: none;    
   }
