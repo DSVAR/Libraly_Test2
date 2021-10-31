@@ -5,16 +5,22 @@ const StyledButton=styled.button`
   margin: ${props=>props.margin || 0};
   color: ${props=>props.color || 'blue'};
   background: ${props=>props.background ||'black'};
-  width: 6rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   justify-content: center;
   border:solid ${props=>props.borderColor || 'black'};
-  border-radius: 0.7em ;
+  border-radius: 5em ;
   margin: 1vh;
-  font-family: ;
+  font-size: 2vh;
+  font-family: Verdana;
   &:hover{
   background: ${({hoverBack})=>hoverBack || 'blue'};
   }
+  
+  :focus{
+    animation: ${props=>props.animation ||'none'};
+  }
+  
 `;
 
 

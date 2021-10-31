@@ -8,6 +8,11 @@ const StyledDiv=styled.div`
   border: ${props=>props.border || 'none'};
   vertical-align: top;
   align-items: center;
+  flex-direction: ${props=>props.flexDirection || "row"};
+  margin:${props=> props.margin || "none" };
+  max-width: ${props=> props.maxWidth || "none"};
+  background: ${props=>props.background || "none" };
+  justify-content: space-between;
 `
 
 

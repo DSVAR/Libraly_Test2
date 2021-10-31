@@ -7,9 +7,10 @@ import Div from "../../StyledComponents/LittleComponents/Div";
 
 const Navbar = () => {
     return (
-        <Div display={'block'} gridArea={"n"} border={'solid red'}>
+        <Div display={'block'} gridArea={"n"} border={'solid red'} maxWidth="20vw">
             <Div display={'block'}>
                 <Input/>
+
             </Div>
         </Div>
     );
