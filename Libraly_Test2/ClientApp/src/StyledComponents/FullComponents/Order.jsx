@@ -3,9 +3,9 @@ import Div from "../LittleComponents/Div";
 
 
 
-const Order = () => {
+const Order = (props) => {
     return (
-        <Div width="28vw" margin="0.3vw" float="left"    border="solid 0.5vh black">
+        <Div {...props} gridArea="auto"  width="18vw" margin="0.5vw"   border="solid 0.5vh black">
               order
         </Div>
     );

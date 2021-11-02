@@ -1,5 +1,20 @@
 .page{
     grid-area: c;
     border:solid rebeccapurple;
-    display: inline-flex;
+    display: block;
+}
+.test {
+
+    grid-area: 1;
+    display:flex;
+    border: none;
+    vertical-align: top;
+    align-items: center;
+    flex-direction: row;
+    margin:0;
+    width:0;
+    float:none;
+    background: none;
+    grid-template-columns: none;
+    grid-template-rows:none;
 }

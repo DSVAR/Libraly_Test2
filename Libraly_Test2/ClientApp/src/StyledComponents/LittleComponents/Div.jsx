@@ -14,7 +14,9 @@ const StyledDiv=styled.div`
   float:${props=>props.float ||"none"};
   //max-width: ${props=> props.maxWidth || "none"};
   background: ${props=>props.background || "none" };
-  justify-content: space-between;
+  grid-template-columns: ${props=>props.gridTemplateColumns || "none"};
+  grid-template-rows: ${props=>props.gridTemplateRows || "none"};
+  
 `
 
 
