@@ -2,3 +2,7 @@
     grid-area: n;
     border:solid red;
 }
+.Text{
+    margin: 0;
+    position: center;
+}

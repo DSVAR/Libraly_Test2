@@ -10,7 +10,9 @@ const StyledDiv=styled.div`
   align-items: center;
   flex-direction: ${props=>props.flexDirection || "row"};
   margin:${props=> props.margin || "none" };
-  max-width: ${props=> props.maxWidth || "none"};
+  width:${props=> props.width || "none"};
+  float:${props=>props.float ||"none"};
+  //max-width: ${props=> props.maxWidth || "none"};
   background: ${props=>props.background || "none" };
   justify-content: space-between;
 `

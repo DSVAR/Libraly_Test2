@@ -59,14 +59,13 @@ const StyledButton=styled.button`
   color: ${props=>props.color || 'blue'};
   background: ${props=>props.background ||'black'};
   width: 4vw;
-  height: 4.5vh;
+  height: 4.8vh;
   justify-content: center;
   border:${props => props.borderColor || 'green solid 0.4vh'};
   //border: none;
   
   &:hover{
-    background: ${({hoverBack})=>hoverBack || 'blue'};
-    
+    background: ${({hoverBack})=>hoverBack || 'blue'};    
   }
 
   :focus{
