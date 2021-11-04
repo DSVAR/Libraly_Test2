@@ -9,7 +9,7 @@ const SomePages = () => {
         <div className={Classes.page}>
             <Div gridTemplateColumns="1fr 1fr 1fr "  display="grid">
 
-                <Order >swer</Order>
+                <Order/>
                 <Order/>
                 <Order/>
                 <Order/>

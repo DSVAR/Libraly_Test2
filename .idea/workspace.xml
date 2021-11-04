@@ -4,9 +4,7 @@
     <list default="true" id="ad806774-4e89-49f0-a4ba-4ec03ff29f81" name="Changes" comment="nav end">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Content/SomePages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Content/SomePages.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Content/SomePages.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Content/SomePages.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/FullComponents/Order.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/FullComponents/Order.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/LittleComponents/Div.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/LittleComponents/Div.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +33,16 @@
       <option name="presentableId" value="Default" />
       <updated>1635610607022</updated>
       <workItem from="1635610616317" duration="844000" />
+      <workItem from="1636026955394" duration="593000" />
     </task>
+    <task id="LOCAL-00001" summary="content">
+      <created>1635879470410</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1635879470410</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -52,5 +59,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="content" />
+    <option name="LAST_COMMIT_MESSAGE" value="content" />
   </component>
 </project>

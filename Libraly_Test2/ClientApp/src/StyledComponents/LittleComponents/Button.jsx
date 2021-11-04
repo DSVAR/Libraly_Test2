@@ -5,11 +5,11 @@ const StyledButton=styled.button`
   margin: ${props=>props.margin || 0};
   color: ${props=>props.color || 'blue'};
   background: ${props=>props.background ||'black'};
-  width: 5rem;
-  height: 5rem;
+  width: ${props=>props.width || '5rem'};
+  height: ${props=>props.height || '5rem'};
   justify-content: center;
   border:solid ${props=>props.borderColor || 'black'};
-  border-radius: 5em ;
+  border-radius: ${props=>props.borderRadius|| '5em'} ;
   margin: 1vh;
   font-size: 2vh;
   font-family: Verdana;
