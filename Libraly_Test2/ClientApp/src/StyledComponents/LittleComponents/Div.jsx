@@ -16,7 +16,7 @@ const StyledDiv=styled.div`
   background: ${props=>props.background || "none" };
   grid-template-columns: ${props=>props.gridTemplateColumns || "none"};
   grid-template-rows: ${props=>props.gridTemplateRows || "none"};
-  
+  position: ${props=>props.position||'none'};
 `
 
 

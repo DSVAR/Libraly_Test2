@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad806774-4e89-49f0-a4ba-4ec03ff29f81" name="Changes" comment="nav end">
+      <change afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Api/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Redux/Reducers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Redux/Store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Redux/bookReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/LittleComponents/Img.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Content/SomePages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Content/SomePages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Content/SomePagesContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/Components/Content/SomePagesContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/FullComponents/Order.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/FullComponents/Order.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/LittleComponents/Div.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/StyledComponents/LittleComponents/Div.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libraly_Test2/ClientApp/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Libraly_Test2/ClientApp/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +33,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kamasutra" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -33,7 +45,7 @@
       <option name="presentableId" value="Default" />
       <updated>1635610607022</updated>
       <workItem from="1635610616317" duration="844000" />
-      <workItem from="1636026955394" duration="593000" />
+      <workItem from="1636026955394" duration="7576000" />
     </task>
     <task id="LOCAL-00001" summary="content">
       <created>1635879470410</created>
@@ -42,7 +54,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635879470410</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Co">
+      <created>1636029148309</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1636029148309</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -62,6 +81,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="content" />
-    <option name="LAST_COMMIT_MESSAGE" value="content" />
+    <MESSAGE value="Co" />
+    <option name="LAST_COMMIT_MESSAGE" value="Co" />
   </component>
 </project>
